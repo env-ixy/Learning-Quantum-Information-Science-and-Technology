@@ -132,7 +132,7 @@ Now, moving on.
     |Input|Output|
     |----|----|
     |$\ket{0}$|$\frac{\ket{0} + \ket{1}}{\sqrt{2}}$|
-    |$\ket{1}$|$\frac{\ket{0} + \ket{1}}{\sqrt{2}}$| 
+    |$\ket{1}$|$\frac{\ket{0} - \ket{1}}{\sqrt{2}}$| 
 
     * Matrix:
 $$
@@ -172,25 +172,25 @@ So we looked at 3 gates. All of these are unitary just like rotation operators.
 
 Now we need Pauli matrices. They are:
 $$
-\sigma_x = \begin{bmatrix} 0&1 \\ 1&0\end{bmatrix} \\
+\hat{\sigma}_x = \begin{bmatrix} 0&1 \\ 1&0\end{bmatrix} \\
 $$
 $$
-\sigma_y = \begin{bmatrix} 0&-i \\ i&0\end{bmatrix}
+\hat{\sigma}_y = \begin{bmatrix} 0&-i \\ i&0\end{bmatrix}
 $$
 $$
-\sigma_z = \begin{bmatrix} 1&0 \\ 0&-1\end{bmatrix}
+\hat{\sigma}_z = \begin{bmatrix} 1&0 \\ 0&-1\end{bmatrix}
 $$
 
-To clarify, $\hat{I}$ is the identity matrix which means all the elements from the top-left to the bottom-right diagonal are 1s and all the other elements are 0s. In 2D, this'd be equal to the aforementioned $\sigma_x$.
+To clarify, $\hat{I}$ is the identity matrix which means all the elements from the top-left to the bottom-right diagonal are 1s and all the other elements are 0s. In 2D, this'd be equal to the aforementioned $\hat{\sigma}_x$.
 
 Armed with these, we can do:
-1. $\sigma_i^2 = \hat{I}$
-2. $[\sigma_x, \sigma_y] = 2i\sigma_0$
+1. $\hat{\sigma}_i^2 = \hat{I}$
+2. $[\hat{\sigma}_x, \hat{\sigma}_y] = 2i\hat{\sigma}_0$
     * Note: $[\hat{A}, \hat{B}] = \hat{A}\hat{B} - \hat{B}\hat{A}$ where $\hat{A}$ and $\hat{B}$ are matrices. This is called the **commutator** of $\hat{A}$ and $\hat{B}$.
 
 So rotational operators become:
 $$
-\hat{R}_\alpha (\beta) = e^{-i\beta\frac{\sigma_\alpha}{2}}
+\hat{R}_\alpha (\beta) = e^{-i\beta\frac{\hat{\sigma}_\alpha}{2}}
 $$
 ($\alpha$ is the axis, $\beta$ is the rotation in radians)
 
@@ -198,7 +198,7 @@ How do we take the exponent of a matrix? There is a 3Blue1Brown video on it. But
 
 So you can argue a NOT gate is
 $$
-\hat{R}_x (\pi) = e^{-i\pi\frac{\sigma_x}{2}}
+\hat{R}_x (\pi) = e^{-i\pi\frac{\hat{\sigma}_x}{2}}
 $$
 
 A theorem I'd present:
@@ -207,7 +207,7 @@ $$
 e^{\pm i \theta \hat{A}} = \cos\theta \hat{I} \pm i\sin\theta \hat{A} 
 $$
 
-The property of the square of the matrix being identity, makes the matrix **idempotent**. We can prove this using the Maclaurin series of $e^\theta$ so:
+The property of the square of the matrix being identity is very useful. We can prove this using the Maclaurin series of $e^\theta$ so:
 $$
 e^\theta = 1 + \theta + \frac{\theta^2}{2!} + \frac{\theta^3}{3!} + \dots
 $$
@@ -215,9 +215,9 @@ Every alternate term (ie. $\theta^\text{even number}$) will be identity. Then us
 
 Now if we take our rotation by x-axis:
 $$
-\hat{R}_x(\beta) = e^{-i\beta\frac{\sigma_x}{2}} \\
-= e^{-i\frac\beta2\sigma_x}  \\
-= \cos(\frac\beta2) \hat{I} - i\sin(\frac\beta2) \sigma_x \quad (\because \sigma_x, \sigma_x^2 = \hat{I})\\ 
+\hat{R}_x(\beta) = e^{-i\beta\frac{\hat{\sigma}_x}{2}} \\
+= e^{-i\frac\beta2\hat{\sigma}_x}  \\
+= \cos(\frac\beta2) \hat{I} - i\sin(\frac\beta2) \hat{\sigma}_x \quad (\because \hat{\sigma}_x, \hat{\sigma}_x^2 = \hat{I})\\ 
 = \boxed{
     \begin{bmatrix}
     \cos\Big(\frac\beta2\Big) & -i\sin\Big(\frac\beta2\Big) \\
@@ -240,14 +240,14 @@ Which is a NOT gate because if you factor out a $-i$, you get it as a global pha
 Take this:
 $$
 \hat{R_\frac{\hat{x} + \hat{z}}{\sqrt{2}}}(\pi) \quad \text{(Hadamard Gate)} \\
-= \exp(-i\pi \Big\{\frac{1}{\sqrt{2}}\frac{\sigma_x}{2} + \frac{1}{\sqrt{2}}\frac{\sigma_z}{\sqrt{2}}\Big\})
+= \exp(-i\pi \Big\{\frac{1}{\sqrt{2}}\frac{\hat{\sigma}_x}{2} + \frac{1}{\sqrt{2}}\frac{\hat{\sigma}_z}{\sqrt{2}}\Big\})
 $$
 
-Now say a roation by $\beta$ in any general axis $\vec{\sigma}$.
+Now say a roation by $\beta$ in any general axis $\vec{\hat{\sigma}}$.
 
 How do you undo a rotation? If it is $\beta$, make it $-\beta$. Similarly:
 $$
-\Big(\hat{R}_{\vec{\sigma}}(\beta)\Big)^{-1} = \hat{R}_{\vec{\sigma}}(-\beta)
+\Big(\hat{R}_{\vec{\sigma}}(\beta)\Big)^{-1} = \hat{R}_{\vec{\hat{\sigma}}}(-\beta)
 $$
 But notice, the LHS is just:
 $$
@@ -255,25 +255,25 @@ $$
 $$ 
 And the RHS:
 $$
-\exp(-i(-\beta)\frac{\vec{\sigma}}{2}) = \exp(+i\beta\frac{\vec{\sigma}}{2})
+\exp(-i(-\beta)\frac{\vec{\sigma}}{2}) = \exp(+i\beta\frac{\vec{\hat{\sigma}}}{2})
 $$
 
 Notice that just the sign of the $i$ flips. Which is what happens in a complex conjugate. 
 
 All the Pauli matrices:
 $$
-\sigma_x^\dagger = \sigma_x
+\hat{\sigma}_x^\dagger = \hat{\sigma}_x
 $$
 $$
-\sigma_y^\dagger = \sigma_y \\
+\hat{\sigma}_y^\dagger = \hat{\sigma}_y \\
 $$
 $$
-\sigma_z^\dagger = \sigma_z
+\hat{\sigma}_z^\dagger = \hat{\sigma}_z
 $$
 
 And remember that $\dagger$ is just complex conjugate and then transpose.
 
-So for $\sigma_x$, it is itself since all real numbers and transpose won't affect since diagonals same. Similarly $\sigma_y$, you take the complex conjugate, the shift the $i$'s, you end with the same. Similarly $\sigma_z$, all real numbers. 
+So for $\hat{\sigma}_x$, it is itself since all real numbers and transpose won't affect since diagonals same. Similarly $\hat{\sigma}_y$, you take the complex conjugate, the shift the $i$'s, you end with the same. Similarly $\hat{\sigma}_z$, all real numbers. 
 
 So the Pauli matrices are adjoined. They are are $\dagger$'s of themselves. 
 
