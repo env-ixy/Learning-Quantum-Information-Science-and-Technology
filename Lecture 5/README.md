@@ -323,7 +323,7 @@ This is called an **entangler circuit**. What does it do to some unsuspecting qu
 
 Take $\ket{00}$. Which is really just $\ket0\otimes\ket0$. What would be the state right after the Hadamard, and before the C-NOT? 
 $$
-\ket0\otimes\ket0 \mapsto^{\hat{U}_H} = \frac{1}{\sqrt2}(\ket0 + \ket1) \otimes \ket0
+\ket0\otimes\ket0 \xmapsto{\hat{U}_H} = \frac{1}{\sqrt2}(\ket0 + \ket1) \otimes \ket0
 $$
 
 Which is also
@@ -336,7 +336,7 @@ Behold! A superposition!
 Now these aer separable. What happens to the first qubit, doesn't happen to the second qubit. Since $frac{1}{\sqrt2}(\ket0 + \ket1) \otimes \ket0$ and $\frac{1}{\sqrt2}(\ket{00} + \ket{10}) \otimes \ket0$ are the different ways to write the same physical state. 
 
 $$
-\frac{1}{\sqrt2}(\ket{00} + \ket{10}) \mapsto^{\hat{U}_{C-NOT}}
+\frac{1}{\sqrt2}(\ket{00} + \ket{10}) \xmapsto{\hat{U}_{C-NOT}}
 \boxed{
     \frac{1}{\sqrt2} (\ket{00} + \ket{11})
 }
@@ -393,9 +393,9 @@ $$
 I can use this to measure this state. Say I input $\frac{1}{\sqrt2}(\ket{00} + \ket{11})$ into a N->H. What state do I get between the N and the H?
 
 $$
-\frac{1}{\sqrt2}(\ket{00} + \ket{11}) \mapsto^{CNOT} \frac{1}{\sqrt2}(\ket{00} + \ket{10}) \\
+\frac{1}{\sqrt2}(\ket{00} + \ket{11}) \xmapsto{CNOT} \frac{1}{\sqrt2}(\ket{00} + \ket{10}) \\
 = \frac{1}{\sqrt2}(\ket0 + \ket1) \otimes \ket0 \\
-{}^H\longmapsto \ket0 \otimes \ket0 \\
+\overset{H}\longmapsto \ket0 \otimes \ket0 \\
 = \ket{00}
 $$
 

@@ -9,13 +9,13 @@ In order to find probabilities, we repeat experiment multiple times. If we want 
 Jsut like logic gates, when you input something through a beamsplitter, it can give these outputs
 
 $$
-\ket{0} \rightarrow^{BS} \frac{\ket{0} + \ket{1}}{\sqrt{2}}
+\ket{0} \xmapsto{BS} \frac{\ket{0} + \ket{1}}{\sqrt{2}}
 $$
 
 Say a NOT gate, you don't just describe what it does to a single input. You have to describe what it does to an orthogonal input too. Similarly, the beamsplitter does a similar thing but subtraction
 
 $$
-\ket{1} \rightarrow^{BS} \frac{\ket{0} - \ket{1}}{\sqrt{2}}
+\ket{1} \xmapsto{BS} \frac{\ket{0} - \ket{1}}{\sqrt{2}}
 $$
 
 The reason why there is $\sqrt{2}$ in the denominator is because our $c_0 = c_1 = \frac{1}{\sqrt{2}}$. In the second case, $c_1 = -\frac{1}{\sqrt{2}}$. This is what would happen at the first beamsplitter. If the second one is identical, it'd do the exact same thing.
@@ -27,7 +27,7 @@ Let's trace the path of the photon.
 So our photon enters in $\ket{0}$. So
 
 $$
-\ket{0} \rightarrow^{BS_1} \frac{\ket{0} + \ket{1}}{\sqrt{2}}
+\ket{0} \xmapsto{BS_1} \frac{\ket{0} + \ket{1}}{\sqrt{2}}
 $$
 
 A superposition. What happens here is, let's call the transmitted path $\ket{0}$ and the other $\ket{1}$. So what happens here is NOT that it exists in _either_ of those. It is that in exists in BOTH of those. This is what $\ket{0} + \ket{1}$ means. It is a quantum field, you can't attach a path to it. It essentially takes both parts at the same time - speaking loosely. The photon is a field spread out in both of these paths. Let's look at $BS_2$.
@@ -37,7 +37,7 @@ QM by nature is linear. If you have an input, you have an output. If you have $\
 The second BS applies a transformation to $\ket{1}$ and $\ket{0}$ in parallel. So the transformation of $\ket{0}$ is applied to it, and the transformation of $\ket{1}$ is applies to it, obviously the factor of $\frac{1}{\sqrt{2}}$ comes out. So
 
 $$
-\ket{0} \rightarrow^{BS_1} \frac{\ket{0} + \ket{1}}{\sqrt{2}} \rightarrow^{BS_2} \boxed{\frac{1}{\sqrt{2}}\Big(\frac{\ket{0} + \ket{1}}{\sqrt{2}} + \frac{\ket{0} - \ket{1}}{\sqrt{2}}\Big)}
+\ket{0} \xmapsto{BS_1} \frac{\ket{0} + \ket{1}}{\sqrt{2}} \xmapsto{BS_2} \boxed{\frac{1}{\sqrt{2}}\Big(\frac{\ket{0} + \ket{1}}{\sqrt{2}} + \frac{\ket{0} - \ket{1}}{\sqrt{2}}\Big)}
 $$
 
 The $\ket{1}$ cancels out from both sides and we are left with $\ket{0}$.
@@ -48,20 +48,20 @@ If we repeat this process with identical photons, we get always $\ket{0}$ and ne
 
 There is constructive interferance at $\ket{0}$ and destructive interferance at $\ket{1}$. This is what the $+$ and $-$ signs represent in the equations. These coefficients may seem arbitrary, but this is just how the beamsplitter is defined.
 
-Now say I put a, say piece of glass, in one of the paths, say for instance the path between the upper mirror and $BS_2$. Something transparent. This medium is defined as $\ket{0} \rightarrow^{Phaser} \ket{0}$. Call this a phaser. not to be confused with phasor.
+Now say I put a, say piece of glass, in one of the paths, say for instance the path between the upper mirror and $BS_2$. Something transparent. This medium is defined as $\ket{0} \xmapsto{Phaser} \ket{0}$. Call this a phaser. not to be confused with phasor.
 
-But to $\ket{1} \rightarrow^{Phaser} e^{i\phi}\ket{1}$. where $\phi \in \mathbb{R}$.
+But to $\ket{1} \xmapsto{Phaser} e^{i\phi}\ket{1}$. where $\phi \in \mathbb{R}$.
 
 My input state is $\ket{0}$. I don't measure anywhere in the setup. I let it do its thing. Note that $\phi$ is the symbol for this gate like `H` for the Hadammard. So
 
 $$
-\ket{0} \rightarrow^{BS_1} \frac{\ket{0} + \ket{1}}{\sqrt{2}} \rightarrow^{\phi} \frac{1}{\sqrt{2}}(\ket{0} + e^{i\phi}\ket{1})
+\ket{0} \xmapsto{BS_1} \frac{\ket{0} + \ket{1}}{\sqrt{2}} \xmapsto{\phi} \frac{1}{\sqrt{2}}(\ket{0} + e^{i\phi}\ket{1})
 $$
 
 All the gates we talk about here are single qubit gates. So one qubit in, one qubit out. After the phaser, $\frac{1}{\sqrt{2}}(\ket{0} + e^{i\phi}\ket{1})$ is the state of the photon, though we don't measure it, whatever. When it passes through the $BS_2$,
 
 $$
-\frac{1}{\sqrt{2}}(\ket{0} + e^{i\phi}\ket{1}) \rightarrow^{BS_2} \boxed{\frac{1}{\sqrt{2}}\Big(\frac{\ket{0} + \ket{1}}{\sqrt{2}} + e^{i\phi}(\frac{\ket{0} - \ket{1}}{\sqrt{2}}) \Big)}
+\frac{1}{\sqrt{2}}(\ket{0} + e^{i\phi}\ket{1}) \xmapsto{BS_2} \boxed{\frac{1}{\sqrt{2}}\Big(\frac{\ket{0} + \ket{1}}{\sqrt{2}} + e^{i\phi}(\frac{\ket{0} - \ket{1}}{\sqrt{2}}) \Big)}
 $$
 
 And expanding it out

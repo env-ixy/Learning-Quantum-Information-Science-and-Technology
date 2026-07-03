@@ -182,7 +182,7 @@ $$
 How do I get this on the Bloch sphere? both lie on the z axis. So just a rotation about the z-axis would do.
 
 $$
-\frac{\ket{0} + \ket{1}}{\sqrt{2}} \rightarrow^{U_\phi} \frac{1}{\sqrt{2}}\Big(\ket{0} + e^{i\phi}\ket{1}\Big)
+\frac{\ket{0} + \ket{1}}{\sqrt{2}} \xmapsto{U_\phi} \frac{1}{\sqrt{2}}\Big(\ket{0} + e^{i\phi}\ket{1}\Big)
 $$
 
 So we looked at 3 gates. All of these are unitary just like rotation operators.
@@ -336,4 +336,3 @@ $$
 $$.
 
 So in single qubit quantum computing, states are given by vectors, rotation operators by unitary matrices. From the next lecture - Lecture 4 - we shall start with quantum algorithms.
-$$
